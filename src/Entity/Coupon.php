@@ -20,9 +20,6 @@ class Coupon
     private ?int $discount = null;
 
     #[ORM\Column]
-    private ?int $discountType = null;
-
-    #[ORM\Column]
     private $isPercentage;
 
     public function getId(): ?int
@@ -54,17 +51,7 @@ class Coupon
         return $this;
     }
 
-    public function getDiscountType(): ?int
-    {
-        return $this->discountType;
-    }
-
-    public function setDiscountType(int $discountType): static
-    {
-        $this->discountType = $discountType;
-
-        return $this;
-    }
+  
     public function getIsPercentage(): ?int
     {
         return $this->isPercentage;
