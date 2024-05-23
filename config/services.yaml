@@ -19,6 +19,12 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
-
+    Systemeio\TestForCandidates\PaymentProcessor\PaypalPaymentProcessor: ~
+    Systemeio\TestForCandidates\PaymentProcessor\StripePaymentProcessor: ~
+    
+    App\Service\PaymentService:
+        arguments:
+            $paypalProcessor: '@Systemeio\TestForCandidates\PaymentProcessor\PaypalPaymentProcessor'
+            $stripeProcessor: '@Systemeio\TestForCandidates\PaymentProcessor\StripePaymentProcessor'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

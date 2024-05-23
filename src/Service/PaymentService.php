@@ -3,8 +3,8 @@
 namespace App\Service;
 
 use App\Enum\PaymentTypeEnum;
-use App\Payment\PaypalPaymentProcessor;
-use App\Payment\StripePaymentProcessor;
+use Systemeio\TestForCandidates\PaymentProcessor\PaypalPaymentProcessor;
+use Systemeio\TestForCandidates\PaymentProcessor\StripePaymentProcessor;
 
 
 class PaymentService
@@ -18,7 +18,8 @@ class PaymentService
     {
         switch ($processor) {
             case PaymentTypeEnum::Paypal->value:
-                return $this->paypalProcessor->pay($amount);
+                $this->paypalProcessor->pay($amount);
+                return true;
             case PaymentTypeEnum::Stripe->value:
                 return $this->stripeProcessor->processPayment($amount);
             default:
