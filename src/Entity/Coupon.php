@@ -17,10 +17,10 @@ class Coupon
     private ?string $code = null;
 
     #[ORM\Column]
-    private ?int $discount = null;
+    private ?float $discount = null;
 
     #[ORM\Column]
-    private $isPercentage;
+    private bool $isPercentage;
 
     public function getId(): ?int
     {
@@ -39,12 +39,12 @@ class Coupon
         return $this;
     }
 
-    public function getDiscount(): ?int
+    public function getDiscount(): ?float
     {
         return $this->discount;
     }
 
-    public function setDiscount(int $discount): static
+    public function setDiscount(float $discount): static
     {
         $this->discount = $discount;
 
@@ -52,12 +52,12 @@ class Coupon
     }
 
   
-    public function getIsPercentage(): ?int
+    public function getIsPercentage(): ?bool
     {
         return $this->isPercentage;
     }
 
-    public function setIsPercentage(int $discountType): static
+    public function setIsPercentage(bool $discountType): static
     {
         $this->isPercentage = $discountType;
 

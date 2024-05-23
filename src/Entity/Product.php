@@ -50,12 +50,12 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?string
+    public function getPrice(): ?float
     {
         return $this->Price;
     }
 
-    public function setPrice(string $Price): static
+    public function setPrice(float $Price): static
     {
         $this->Price = $Price;
 
