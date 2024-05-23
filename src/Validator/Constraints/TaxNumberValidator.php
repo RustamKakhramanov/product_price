@@ -7,7 +7,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 class TaxNumberValidator extends ConstraintValidator
 {
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$value) {
             return;

@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Enum\PaymentTypeEnum;
 use App\Payment\PaypalPaymentProcessor;
 use App\Payment\StripePaymentProcessor;
 
@@ -16,9 +17,9 @@ class PaymentService
     public function processPayment(string $processor, float $amount): bool
     {
         switch ($processor) {
-            case 'paypal':
+            case PaymentTypeEnum::Paypal->value:
                 return $this->paypalProcessor->pay($amount);
-            case 'stripe':
+            case PaymentTypeEnum::Stripe->value:
                 return $this->stripeProcessor->processPayment($amount);
             default:
                 throw new \InvalidArgumentException('Invalid payment processor.');

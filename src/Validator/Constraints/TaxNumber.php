@@ -9,7 +9,7 @@ class TaxNumber extends Constraint
 {
     public $message = 'The tax number "{{ value }}" is not valid for country "{{ country }}".';
 
-    public function getTargets()
+    public function getTargets(): string
     {
         return self::PROPERTY_CONSTRAINT;
     }
